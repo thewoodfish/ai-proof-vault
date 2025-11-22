@@ -22,13 +22,15 @@ interface VerifyResponse {
   timestamp?: number;
 }
 
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
 const Index = () => {
   const [activeTab, setActiveTab] = useState<"generate" | "verify">("generate");
   
   // Generate state
   const [generateFile, setGenerateFile] = useState<File | null>(null);
   const [generatePreview, setGeneratePreview] = useState<string>("");
-  const [selectedModel, setSelectedModel] = useState("gpt-4.2-vision-preview");
+  const [selectedModel, setSelectedModel] = useState("gpt-4o-mini");
   const [isGenerating, setIsGenerating] = useState(false);
   const [generateResult, setGenerateResult] = useState<GenerateResponse | null>(null);
 
@@ -62,8 +64,9 @@ const Index = () => {
     formData.append("image", generateFile);
     formData.append("model", selectedModel);
 
+    console.log("dfdd" + JSON.stringify(API_BASE_URL))
     try {
-      const response = await fetch("/api/generate", {
+      const response = await fetch(`${API_BASE_URL}/generate`, {
         method: "POST",
         body: formData,
       });
@@ -105,7 +108,7 @@ const Index = () => {
     formData.append("image", verifyFile);
 
     try {
-      const response = await fetch("/api/verify", {
+      const response = await fetch(`${API_BASE_URL}/verify`, {
         method: "POST",
         body: formData,
       });
@@ -199,8 +202,8 @@ const Index = () => {
                       disabled={isGenerating}
                       className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground disabled:opacity-50"
                     >
-                      <option value="gpt-4.2-vision-preview">OpenAI Vision</option>
-                      <option value="grok-vision">Grok Vision</option>
+                      <option value="openai">OpenAI Vision</option>
+                      <option value="grok">Grok Vision</option>
                     </select>
                   </div>
 
