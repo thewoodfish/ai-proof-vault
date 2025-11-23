@@ -166,7 +166,7 @@ app.post("/api/verify", upload.single("image"), async (req, res) => {
         const imageHash = sha256Hex(imageBuffer);
 
         // lookup in DB
-        const row = db.prepare("SELECT cid, created_at FROM vault WHERE image_hash = ?").get(imageHash);
+        const row: any = db.prepare("SELECT cid, created_at FROM vault WHERE image_hash = ?").get(imageHash);
         if (!row) {
             return res.json({ valid: false, reason: "no_proof_found" });
         }
