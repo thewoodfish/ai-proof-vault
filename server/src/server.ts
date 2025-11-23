@@ -73,7 +73,22 @@ async function setup_synapse() {
 }
 
 // Setup Synapse account with tUSDFC
-setup_synapse();
+let synapseReady = false;
+async function ensureSynapse() {
+    if (synapseReady) return;
+    try {
+        const synapse = await Synapse.create({
+            privateKey: PRIVATE_KEY,
+            rpcURL: RPC_URLS.calibration.http
+        });
+
+        await setupPayments(synapse, 0.3);
+        synapseReady = true;
+        console.log("Synapse ready");
+    } catch (e) {
+        console.error("Synapse init failed:", e);
+    }
+}
 
 // Helper: SHA-256 hex of buffer
 function sha256Hex(buf: Buffer): string {
@@ -115,6 +130,8 @@ async function callAIModel(
  */
 app.post("/api/generate", upload.single("image"), async (req, res) => {
     try {
+        await ensureSynapse();
+
         if (!req.file) return res.status(400).json({ error: "image file is required" });
         const imageBuffer = req.file.buffer;
         const model = (req.body.model as string) || undefined;
