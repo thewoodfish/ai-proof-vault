@@ -1,4 +1,4 @@
-# ⚡️ AI Proof Vault
+# 🛡️ AI Proof Vault
 The Internet Has a Trust Problem. We Fix It.
 
 AI can now fabricate photo-realistic images that look indistinguishable from reality.
