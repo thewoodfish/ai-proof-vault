@@ -143,9 +143,8 @@ User → Frontend → Backend → Hash + AI Description → Proof Package
 5. Store on Filecoin: We bundle this and store it through Warm Storage to receive a CID.
 
 6. Verification: We take a second image → hash it → compare with stored hash.
-
-If equal → Verified Original.
-If not → Mismatch (fake or modified).
+   If equal → Verified Original.
+   If not → Mismatch (fake or modified).
 
 ## 🧪 Example API Requests
 - Generate

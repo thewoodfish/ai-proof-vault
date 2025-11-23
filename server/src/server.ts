@@ -180,11 +180,11 @@ app.post("/api/verify", upload.single("image"), async (req, res) => {
             return res.json({
                 valid: true,
                 cid,
-                info: "Proof mapping found but proof JSON not available in Filecoin cache. In production, fetch full proof from Filecoin."
+                info: "Proof mapping found but proof JSON not available in Filecoin cache. Hence it has not been verified."
             });
         }
 
-        // verify the stored hash matches calculated hash
+        // Verify the stored hash matches calculated hash
         if ((proof as any).image_hash === imageHash) {
             return res.json({
                 valid: true,
