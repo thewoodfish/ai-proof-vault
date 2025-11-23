@@ -1,10 +1,10 @@
-# 🛡️ AI Proof Vault
+# 🛡️ The Internet's Proof Vault
 The Internet Has a Trust Problem. We Fix It.
 
 AI can now fabricate photo-realistic images that look indistinguishable from reality.
 But the world has no universal way to prove whether a visual is authentic.
 
-AI Proof Vault is a decentralized verification layer for images.
+The Internet's Proof Vault is a decentralized verification layer for images.
 It generates tamper-proof proofs on Filecoin and lets anyone verify authenticity instantly.
 
 You upload an image → We hash it, describe it, timestamp it, and store its proof immutably.
@@ -198,7 +198,7 @@ npm run dev
 Set `VITE_API_URL=http://localhost:4000/api`
 
 ## Summary
-AI Proof Vault is a cryptographically-verified truth layer for the visual internet.
+The Internet's Proof Vault is a cryptographically-verified truth layer for the visual internet.
 Built in 48 hours. Powered by AI (OpenAI) + Filecoin. 
 
 Ready for the world. 🚀

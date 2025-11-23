@@ -143,7 +143,7 @@ const Index = () => {
         <div className="max-w-5xl mx-auto px-6 py-8">
           <div className="flex items-center gap-3 mb-2">
             <Shield className="w-8 h-8 text-primary" />
-            <h1 className="text-3xl font-bold text-foreground">AI Proof Vault</h1>
+            <h1 className="text-3xl font-bold text-foreground">The Internet's Vault</h1>
           </div>
           <p className="text-lg text-muted-foreground">
             Ensuring Authenticity, Integrity, and Trust in an AI-Generated World
@@ -354,7 +354,7 @@ const Index = () => {
       <footer className="border-t border-border mt-24">
         <div className="max-w-5xl mx-auto px-6 py-8 text-center">
           <p className="text-muted-foreground">
-            AI Proof Vault - Ensuring Authenticity, Integrity, and Trust in an AI-Generated World
+            The Internet's Vault - Ensuring Authenticity, Integrity, and Trust in an AI-Generated World
           </p>
         </div>
       </footer>
