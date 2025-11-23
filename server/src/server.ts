@@ -36,6 +36,9 @@ const app = express();
 
 // Enable CORS for all origins
 app.use(cors());
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Get keys
 const PRIVATE_KEY = process.env.PRIVATE_KEY ? process.env.PRIVATE_KEY : "";
