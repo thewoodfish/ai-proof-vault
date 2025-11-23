@@ -146,7 +146,7 @@ const Index = () => {
             <h1 className="text-3xl font-bold text-foreground">AI Proof Vault</h1>
           </div>
           <p className="text-lg text-muted-foreground">
-            Verify that an AI description truly came from an image.
+            Ensuring Authenticity, Integrity, and Trust in an AI-Generated World
           </p>
         </div>
       </header>
@@ -203,7 +203,7 @@ const Index = () => {
                       className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground disabled:opacity-50"
                     >
                       <option value="openai">OpenAI Vision</option>
-                      <option value="grok">Grok Vision</option>
+                      {/* <option value="grok">Grok Vision</option> */}
                     </select>
                   </div>
 
@@ -354,7 +354,7 @@ const Index = () => {
       <footer className="border-t border-border mt-24">
         <div className="max-w-5xl mx-auto px-6 py-8 text-center">
           <p className="text-muted-foreground">
-            AI Proof Vault - Ensuring authenticity and trust in AI-generated content
+            AI Proof Vault - Ensuring Authenticity, Integrity, and Trust in an AI-Generated World
           </p>
         </div>
       </footer>
