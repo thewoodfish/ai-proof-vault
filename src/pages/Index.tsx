@@ -63,8 +63,7 @@ const Index = () => {
     const formData = new FormData();
     formData.append("image", generateFile);
     formData.append("model", selectedModel);
-
-    console.log("dfdd" + JSON.stringify(API_BASE_URL))
+    console.log("dfdd" + API_BASE_URL)
     try {
       const response = await fetch(`${API_BASE_URL}/generate`, {
         method: "POST",
