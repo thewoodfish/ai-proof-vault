@@ -124,17 +124,11 @@ User → Frontend → Backend → Hash + AI Description → Proof Package
 ```
 
 ## 🔐 How It Works (Deep Dive)
-1. Upload
+1. Upload: User chooses an image.
 
-User chooses an image.
+2. Generate Description: We send it to an AI model for a deterministic description.
 
-2. Generate Description
-
-We send it to an AI model for a deterministic description.
-
-3. Cryptographic Hash
-
-We compute a SHA-256 hash of the exact file bytes.
+3. Cryptographic Hash: We compute a SHA-256 hash of the exact file bytes.
 
 4. Build the Proof Package
 ```json
@@ -146,13 +140,9 @@ We compute a SHA-256 hash of the exact file bytes.
 }
 ```
 
-5. Store on Filecoin
+5. Store on Filecoin: We bundle this and store it through Warm Storage to receive a CID.
 
-We bundle this and store it through Warm Storage → receive a CID.
-
-6. Verification
-
-We take a second image → hash it → compare with stored hash.
+6. Verification: We take a second image → hash it → compare with stored hash.
 
 If equal → Verified Original.
 If not → Mismatch (fake or modified).
@@ -174,41 +164,41 @@ curl -X POST http://localhost:4000/api/verify \
 
 ## ⚔️ Built With
 
-OpenAI GPT-4o mini (vision → description)
+1. OpenAI GPT-4o mini (vision → description)
 
-Synapse SDK
+1. Synapse SDK
 
-Filecoin Warm Storage
+1. Filecoin Warm Storage
 
-USDFC testnet token
+1. USDFC testnet token
 
-Node.js + Express
+1. Node.js + Express
 
-React + Vite
+1. React + Vite
 
-lucide-react
+1. lucide-react
 
-FormData + Fetch API
+1. FormData + Fetch API
 
 ## 🛠 Local Setup
+```bash
 git clone <repo>
 cd ai-proof-vault/server
 cp .env.example .env
 npm install
 npm run dev
-
+```
 
 Frontend:
-
+```bash
 cd ai-proof-vault/web
 npm install
 npm run dev
+```
 
+Set `VITE_API_URL=http://localhost:4000/api`
 
-Set VITE_API_URL=http://localhost:4000/api
-
-
-
+## Summary
 AI Proof Vault is a cryptographically-verified truth layer for the visual internet.
 Built in 48 hours. Powered by AI (OpenAI) + Filecoin. 
 
