@@ -149,7 +149,7 @@ const Index = () => {
             Ensuring Authenticity, Integrity, and Trust in an AI-Generated World.
           </p>
           <p className="text-sm ">
-            ✅ Built with <a href="filecoin.io" className="text-blue-500">Filecoin</a>.
+            ✅ Built with <a href="https://filecoin.io" className="text-blue-500">Filecoin</a>.
           </p>
         </div>
       </header>
