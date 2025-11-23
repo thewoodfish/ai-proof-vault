@@ -70,35 +70,35 @@ Simple. Immutable. Universal.
 
 A clean interface for two main operations:
 
-- - Generate Proof — Upload an image, pick a model, get a Proof Package (hash, description, timestamp, CID).
+- Generate Proof — Upload an image, pick a model, get a Proof Package (hash, description, timestamp, CID).
 
-- - Verify Proof — Upload an image + CID → instantly know if it matches.
+- Verify Proof — Upload an image + CID → instantly know if it matches.
 
 
 **Backend (Node.js + Express)**
-- - ```/api/generate```
+- ```/api/generate```
 
-Accepts image + model (OpenAI)
+1. Accepts image + model (OpenAI)
 
-Generates description
+1. Generates description
 
-Hashes image
+1. Hashes image
 
-Creates a Proof Package
+1. Creates a Proof Package
 
-Uploads it to Filecoin via Synapse SDK
+1. Uploads it to Filecoin via Synapse SDK
 
-Returns CID + metadata
+1. Returns CID + metadata
 
-- - ```/api/verify```
+- ```/api/verify```
 
-Accepts image + CID
+1. Accepts image + CID
 
-Fetches stored proof
+1. Fetches stored proof
 
-Re-hashes submitted image
+1. Re-hashes submitted image
 
-Confirms authenticity
+1. Confirms authenticity
 
 - **Decentralized Storage (Filecoin Warm Storage)**
 
