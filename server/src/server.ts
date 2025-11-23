@@ -1,5 +1,5 @@
 /**
- * AI Proof Vault - TypeScript Express server (image-only)
+ * AI Proof Vault 
  *
  * - POST /api/generate   -> form-data: image (file), model (string)
  * - POST /api/verify     -> form-data: image (file)
@@ -8,7 +8,6 @@
  *  - express + multer for file upload
  *  - better-sqlite3 for a tiny durable mapping (image_hash -> cid)
  *
- * Replace `callAIModel(...)` and `storeOnFilecoin(...)` with your real implementations.
  */
 
 import express from "express";
@@ -22,25 +21,28 @@ import path from "path";
 import { callGrokVision, callOpenAIVision } from "./util.ts";
 import { Synapse, RPC_URLS } from "@filoz/synapse-sdk";
 
-
 // Local imports
 import { storeOnFilecoin, retrieveFromFilecoin } from "./storage.ts";
 import { setupPayments } from "./storage.ts";
 import cors from 'cors';
 
 
+// Import env variables
 dotenv.config();
 
+// Configure server
 const PORT = process.env.PORT ? Number(process.env.PORT) : 4000;
 const app = express();
 
 // Enable CORS for all origins
 app.use(cors());
+
+// Get keys
 const PRIVATE_KEY = process.env.PRIVATE_KEY ? process.env.PRIVATE_KEY : "";
 const OPENAI_KEY = process.env.OPENAI_API_KEY ? process.env.OPENAI_API_KEY : "";
 const GROK_KEY = "";
 
-// multer in-memory storage (small files)
+// Multer in-memory storage (small files)
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
 
 // Ensure data folder
@@ -67,14 +69,13 @@ async function setup_synapse() {
     }); await setupPayments(synapse, 0.3); // Deposit 0.3 USDFC
 }
 
-// Setup Synapse account with USDC
+// Setup Synapse account with tUSDFC
 setup_synapse();
 
 // Helper: SHA-256 hex of buffer
 function sha256Hex(buf: Buffer): string {
     return crypto.createHash("sha256").update(buf).digest("hex");
 }
-
 
 /**
  * Function that can route to different AI models
@@ -118,7 +119,7 @@ app.post("/api/generate", upload.single("image"), async (req, res) => {
         // Compute image hash
         const imageHash = sha256Hex(imageBuffer);
 
-        //Call AI model
+        // Call AI model
         const ai = await callAIModel(imageBuffer, model);
 
         // Build proof object
@@ -131,7 +132,7 @@ app.post("/api/generate", upload.single("image"), async (req, res) => {
             vault_version: "0.1.0"
         };
 
-        // Store on Filecoin (Synapse or filecoin pinning) -> CID
+        // Store on Filecoin and get CID
         const cid = await storeOnFilecoin(proof, "testnet");
 
         // Persist mapping image_hash -> cid in SQLite
@@ -172,14 +173,14 @@ app.post("/api/verify", upload.single("image"), async (req, res) => {
 
         const cid: string = row.cid;
 
-        // fetch proof object from Filecoin (or local cache)
+        // Fetch proof object from Filecoin
         const proof = await retrieveFromFilecoin(cid);
         if (!proof) {
-            // if filecoin isn't reachable, but we have the DB mapping, we can still return basic data
+            // If filecoin isn't reachable, but we have the DB mapping, we can still return basic data
             return res.json({
                 valid: true,
                 cid,
-                info: "proof mapping found but proof JSON not available in Filecoin cache. In production, fetch full proof from Filecoin."
+                info: "Proof mapping found but proof JSON not available in Filecoin cache. In production, fetch full proof from Filecoin."
             });
         }
 

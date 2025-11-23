@@ -17,7 +17,7 @@ function getRpcURL(network: string) {
 }
 
 /**
- * Store JSON proof on Filecoin using Synapse SDK
+ * Store JSON proof on Filecoin using the Synapse SDK
  */
 async function storeOnFilecoin(
   proofObj: object,
@@ -31,7 +31,6 @@ async function storeOnFilecoin(
     rpcURL,
   });
 
-  console.log("dsd");
   try {
     const proofData = new TextEncoder().encode(
       JSON.stringify(proofObj, null, 2)
