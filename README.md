@@ -200,6 +200,9 @@ Set `VITE_API_URL=http://localhost:4000/api`
 ## Deployment
 The Internet's value is deployed on https://ai-proof-vault.vercel.app/.
 
+### A.I use
+Lovable was use to generate and scaffold the UI and Front-end. Chat-GPT was used in server-side debugging.
+
 ## Summary
 The Internet's Proof Vault is a cryptographically-verified truth layer for the visual internet.
 Built in 48 hours. Powered by AI (OpenAI) + Filecoin. 
