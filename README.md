@@ -66,7 +66,7 @@ Ask **“Does this image match the original proof?”**
 Simple. Immutable. Universal.
 
 ## 🚀 What We Built
-- **Frontend (React + Vite)**
+**Frontend (React + Vite)**
 
 A clean interface for two main operations:
 
@@ -74,7 +74,8 @@ A clean interface for two main operations:
 
 - - Verify Proof — Upload an image + CID → instantly know if it matches.
 
-- **Backend (Node.js + Express)**
+
+**Backend (Node.js + Express)**
 - - ```/api/generate```
 
 Accepts image + model (OpenAI)
