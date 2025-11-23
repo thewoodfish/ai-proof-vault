@@ -143,10 +143,13 @@ const Index = () => {
         <div className="max-w-5xl mx-auto px-6 py-8">
           <div className="flex items-center gap-3 mb-2">
             <Shield className="w-8 h-8 text-primary" />
-            <h1 className="text-3xl font-bold text-foreground">The Internet's Vault</h1>
+            <h1 className="text-3xl font-bold text-foreground">The Internet's Proof Vault</h1>
           </div>
           <p className="text-lg text-muted-foreground">
-            Ensuring Authenticity, Integrity, and Trust in an AI-Generated World
+            Ensuring Authenticity, Integrity, and Trust in an AI-Generated World.
+          </p>
+          <p className="text-sm ">
+            ✅ Built with <a href="filecoin.io" className="text-blue-500">Filecoin</a>.
           </p>
         </div>
       </header>
@@ -181,7 +184,7 @@ const Index = () => {
         {activeTab === "generate" && (
           <div className="space-y-6">
             <Card>
-              <h2 className="text-2xl font-semibold mb-6">Generate AI Description</h2>
+              <h2 className="text-2xl font-semibold mb-6">Upload Image, generate metadata and store on a tamper-proof internet.</h2>
               
               <FileUploadBox
                 onFileSelect={handleGenerateFileSelect}
@@ -354,7 +357,7 @@ const Index = () => {
       <footer className="border-t border-border mt-24">
         <div className="max-w-5xl mx-auto px-6 py-8 text-center">
           <p className="text-muted-foreground">
-            The Internet's Vault - Ensuring Authenticity, Integrity, and Trust in an AI-Generated World
+            The Internet's Proof Vault - Ensuring Authenticity, Integrity, and Trust in an AI-Generated World.
           </p>
         </div>
       </footer>
