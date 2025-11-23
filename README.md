@@ -100,7 +100,7 @@ A clean interface for two main operations:
 
 1. Confirms authenticity
 
-- **Decentralized Storage (Filecoin Warm Storage)**
+**Decentralized Storage (Filecoin Warm Storage)**
 
 We use:
 
